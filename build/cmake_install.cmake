@@ -47,6 +47,11 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/mymath/cmake_install.cmake")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/myCalculate/cmake_install.cmake")
+endif()
+
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)

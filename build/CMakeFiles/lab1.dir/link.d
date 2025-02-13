@@ -4,6 +4,7 @@ lab1: \
   /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
   CMakeFiles/lab1.dir/main.cpp.o \
   mymath/libmymath.a \
+  myCalculate/libmyCalculate.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
@@ -43,6 +44,8 @@ lab1: \
 CMakeFiles/lab1.dir/main.cpp.o:
 
 mymath/libmymath.a:
+
+myCalculate/libmyCalculate.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so:
 

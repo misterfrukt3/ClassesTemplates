@@ -65,21 +65,44 @@ CMAKE_BINARY_DIR = /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build
 # The main recursive "all" target.
 all: CMakeFiles/lab1.dir/all
 all: mymath/all
+all: myCalculate/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/lab1.dir/codegen
 codegen: mymath/codegen
+codegen: myCalculate/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
 preinstall: mymath/preinstall
+preinstall: myCalculate/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/lab1.dir/clean
 clean: mymath/clean
+clean: myCalculate/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory myCalculate
+
+# Recursive "all" directory target.
+myCalculate/all: myCalculate/CMakeFiles/myCalculate.dir/all
+.PHONY : myCalculate/all
+
+# Recursive "codegen" directory target.
+myCalculate/codegen: myCalculate/CMakeFiles/myCalculate.dir/codegen
+.PHONY : myCalculate/codegen
+
+# Recursive "preinstall" directory target.
+myCalculate/preinstall:
+.PHONY : myCalculate/preinstall
+
+# Recursive "clean" directory target.
+myCalculate/clean: myCalculate/CMakeFiles/myCalculate.dir/clean
+.PHONY : myCalculate/clean
 
 #=============================================================================
 # Directory level rules for directory mymath
@@ -105,6 +128,7 @@ mymath/clean: mymath/CMakeFiles/mymath.dir/clean
 
 # All Build rule for target.
 CMakeFiles/lab1.dir/all: mymath/CMakeFiles/mymath.dir/all
+CMakeFiles/lab1.dir/all: myCalculate/CMakeFiles/myCalculate.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab1.dir/build.make CMakeFiles/lab1.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles --progress-num=1,2 "Built target lab1"
@@ -112,7 +136,7 @@ CMakeFiles/lab1.dir/all: mymath/CMakeFiles/mymath.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/lab1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/lab1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles 0
 .PHONY : CMakeFiles/lab1.dir/rule
@@ -139,7 +163,7 @@ CMakeFiles/lab1.dir/clean:
 mymath/CMakeFiles/mymath.dir/all:
 	$(MAKE) $(MAKESILENT) -f mymath/CMakeFiles/mymath.dir/build.make mymath/CMakeFiles/mymath.dir/depend
 	$(MAKE) $(MAKESILENT) -f mymath/CMakeFiles/mymath.dir/build.make mymath/CMakeFiles/mymath.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles --progress-num=3,4 "Built target mymath"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles --progress-num=5,6 "Built target mymath"
 .PHONY : mymath/CMakeFiles/mymath.dir/all
 
 # Build rule for subdir invocation for target.
@@ -156,13 +180,45 @@ mymath: mymath/CMakeFiles/mymath.dir/rule
 # codegen rule for target.
 mymath/CMakeFiles/mymath.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f mymath/CMakeFiles/mymath.dir/build.make mymath/CMakeFiles/mymath.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles --progress-num=3,4 "Finished codegen for target mymath"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles --progress-num=5,6 "Finished codegen for target mymath"
 .PHONY : mymath/CMakeFiles/mymath.dir/codegen
 
 # clean rule for target.
 mymath/CMakeFiles/mymath.dir/clean:
 	$(MAKE) $(MAKESILENT) -f mymath/CMakeFiles/mymath.dir/build.make mymath/CMakeFiles/mymath.dir/clean
 .PHONY : mymath/CMakeFiles/mymath.dir/clean
+
+#=============================================================================
+# Target rules for target myCalculate/CMakeFiles/myCalculate.dir
+
+# All Build rule for target.
+myCalculate/CMakeFiles/myCalculate.dir/all:
+	$(MAKE) $(MAKESILENT) -f myCalculate/CMakeFiles/myCalculate.dir/build.make myCalculate/CMakeFiles/myCalculate.dir/depend
+	$(MAKE) $(MAKESILENT) -f myCalculate/CMakeFiles/myCalculate.dir/build.make myCalculate/CMakeFiles/myCalculate.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles --progress-num=3,4 "Built target myCalculate"
+.PHONY : myCalculate/CMakeFiles/myCalculate.dir/all
+
+# Build rule for subdir invocation for target.
+myCalculate/CMakeFiles/myCalculate.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 myCalculate/CMakeFiles/myCalculate.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles 0
+.PHONY : myCalculate/CMakeFiles/myCalculate.dir/rule
+
+# Convenience name for target.
+myCalculate: myCalculate/CMakeFiles/myCalculate.dir/rule
+.PHONY : myCalculate
+
+# codegen rule for target.
+myCalculate/CMakeFiles/myCalculate.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f myCalculate/CMakeFiles/myCalculate.dir/build.make myCalculate/CMakeFiles/myCalculate.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build/CMakeFiles --progress-num=3,4 "Finished codegen for target myCalculate"
+.PHONY : myCalculate/CMakeFiles/myCalculate.dir/codegen
+
+# clean rule for target.
+myCalculate/CMakeFiles/myCalculate.dir/clean:
+	$(MAKE) $(MAKESILENT) -f myCalculate/CMakeFiles/myCalculate.dir/build.make myCalculate/CMakeFiles/myCalculate.dir/clean
+.PHONY : myCalculate/CMakeFiles/myCalculate.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -1,0 +1,3 @@
+/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/myCalculate/build/CMakeFiles/myCalculate.dir
+/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/myCalculate/build/CMakeFiles/edit_cache.dir
+/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/myCalculate/build/CMakeFiles/rebuild_cache.dir
