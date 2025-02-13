@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/misterfrukt/CS-Labs/Labs/lab1/mymath/mymath.cpp" "mymath/CMakeFiles/mymath.dir/mymath.cpp.o" "gcc" "mymath/CMakeFiles/mymath.dir/mymath.cpp.o.d"
+  "/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/mymath/mymath.cpp" "mymath/CMakeFiles/mymath.dir/mymath.cpp.o" "gcc" "mymath/CMakeFiles/mymath.dir/mymath.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

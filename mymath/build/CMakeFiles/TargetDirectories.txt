@@ -1,0 +1,3 @@
+/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/mymath/build/CMakeFiles/mymath.dir
+/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/mymath/build/CMakeFiles/edit_cache.dir
+/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/mymath/build/CMakeFiles/rebuild_cache.dir

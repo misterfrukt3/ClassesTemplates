@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/misterfrukt/CS-Labs/Labs/lab1/main.cpp" "CMakeFiles/lab1.dir/main.cpp.o" "gcc" "CMakeFiles/lab1.dir/main.cpp.o.d"
+  "/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/main.cpp" "CMakeFiles/lab1.dir/main.cpp.o" "gcc" "CMakeFiles/lab1.dir/main.cpp.o.d"
   "" "lab1" "gcc" "CMakeFiles/lab1.dir/link.d"
   )
 

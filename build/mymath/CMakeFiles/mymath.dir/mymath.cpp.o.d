@@ -1,4 +1,4 @@
 mymath/CMakeFiles/mymath.dir/mymath.cpp.o: \
- /home/misterfrukt/CS-Labs/Labs/lab1/mymath/mymath.cpp \
+ /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/mymath/mymath.cpp \
  /usr/include/stdc-predef.h \
- /home/misterfrukt/CS-Labs/Labs/lab1/mymath/mymath.h
+ /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/mymath/mymath.h
