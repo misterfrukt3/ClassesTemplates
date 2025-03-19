@@ -39,6 +39,7 @@ public:
     int getSatellite() const;
 
     void clear();
+
     // Статические методы для работы с базой планет
     static void add_planet(Planet*& planets, int &n_planet, int &capacity);
     static void delete_planet(Planet* planets, int &n_planet, int planet_index);
