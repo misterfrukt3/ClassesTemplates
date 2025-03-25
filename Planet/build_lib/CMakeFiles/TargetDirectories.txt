@@ -1,0 +1,3 @@
+/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build_lib/CMakeFiles/planet.dir
+/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build_lib/CMakeFiles/edit_cache.dir
+/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/build_lib/CMakeFiles/rebuild_cache.dir
