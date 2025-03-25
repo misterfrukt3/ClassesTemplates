@@ -2,8 +2,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/lab2.dir/link.d"
   "CMakeFiles/lab2.dir/main.cpp.o"
   "CMakeFiles/lab2.dir/main.cpp.o.d"
-  "CMakeFiles/lab2.dir/planet.cpp.o"
-  "CMakeFiles/lab2.dir/planet.cpp.o.d"
   "lab2"
   "lab2.pdb"
 )

@@ -1,84 +1,139 @@
+#include "PLanetLib/planet.h"
 #include <iostream>
-#include "planet.h"
-#include <cstring>
+
+void wait_for_continue() {
+    char choice;
+    std::cout << "Продолжить? (y/n): ";
+    std::cin >> choice;
+    if (choice == 'n' || choice == 'N') {
+        exit(0); // Завершение программы
+    }
+}
 
 int main(int argc, char* argv[]) {
-    const int INITIAL_CAPACITY = 120;
-    const int MAX_NAME_LENGTH = 100;
-    char file_name[MAX_NAME_LENGTH];
-
-    // Динамический массив планет
+    const int INITIAL_CAPACITY = 10;
+    const char* file_name = "planets.txt";
     Planet* planets = new Planet[INITIAL_CAPACITY];
-    int capacity = INITIAL_CAPACITY;
     int n_planet = 0;
-    int ind;
+    int capacity = INITIAL_CAPACITY;
 
-    if (argc > 1 && strcmp(argv[1], "i") == 0) {
+    if (argc == 1) {
         while (true) {
-            MenuOption choice = static_cast<MenuOption>(Planet::menu());
+            int choice = Planet::menu();
             switch (choice) {
-                case READ_FROM_FILE:
-                    std::cout << "Введите название файла" << '\n';
-                    std::cin >> file_name;
-                    n_planet = Planet::read_db(file_name, planets, n_planet, capacity);
+                case READ_FROM_FILE: {
+                    int result = Planet::read_db(file_name, planets, n_planet, capacity);
+                    if (result > 0) {
+                        std::cout << "Файл успешно прочитан. Загружено планет: " << result << std::endl;
+                    } else if (result == 0) {
+                        std::cout << "Файл пуст." << std::endl;
+                    } else {
+                        std::cout << "Ошибка чтения файла." << std::endl;
+                    }
+                    wait_for_continue();
                     break;
-                case WRITE_TO_FILE:
-                    std::cout << "Введите название файла" << '\n';
-                    std::cin >> file_name;
-                    Planet::write_db(file_name, planets, n_planet);
+                }
+                case WRITE_TO_FILE: {
+                    int result = Planet::write_db(file_name, planets, n_planet);
+                    if (result == 0) {
+                        std::cout << "Данные успешно записаны в файл." << std::endl;
+                    } else {
+                        std::cout << "Ошибка записи в файл." << std::endl;
+                    }
+                    wait_for_continue();
                     break;
-                case EDIT_PLANET:
-                    if ((ind = Planet::find(planets, n_planet)) >= 0)
-                        std::cin >> planets[ind];
-                    else
-                        std::cout << "Такой планеты нет" << std::endl;
+                }
+                case EDIT_PLANET: {
+                    if (n_planet == 0) {
+                        std::cout << "Список планет пуст." << std::endl;
+                    } else {
+                        int index = Planet::find(planets, n_planet);
+                        if (index >= 0) {
+                            std::cin >> planets[index];
+                            std::cout << "Данные планеты обновлены." << std::endl;
+                        } else {
+                            std::cout << "Планета не найдена." << std::endl;
+                        }
+                    }
+                    wait_for_continue();
                     break;
-                case PRINT_BOOKS:
-                    Planet::print_db(planets, n_planet);
+                }
+                case PRINT_BOOKS: {
+                    if (n_planet == 0) {
+                        std::cout << "Список планет пуст." << std::endl;
+                    } else {
+                        Planet::print_db(planets, n_planet);
+                    }
+                    wait_for_continue();
                     break;
-                case SORT_BY_AUTHOR:
-                    Planet::sort_db(planets, n_planet);
+                }
+                case SORT_BY_DIAMETER: {
+                    if (n_planet == 0) {
+                        std::cout << "Список планет пуст." << std::endl;
+                    } else {
+                        Planet::sort_by_diameter(planets, n_planet);
+                        std::cout << "Планеты отсортированы по диаметру." << std::endl;
+                    }
+                    wait_for_continue();
                     break;
-                case SORT_BY_NAME:
-                    Planet::sort_by_name(planets, n_planet);
+                }
+                case SORT_BY_NAME: {
+                    if (n_planet == 0) {
+                        std::cout << "Список планет пуст." << std::endl;
+                    } else {
+                        Planet::sort_by_name(planets, n_planet);
+                        std::cout << "Планеты отсортированы по названию." << std::endl;
+                    }
+                    wait_for_continue();
                     break;
-                case ADD_BOOK:
+                }
+                case ADD_BOOK: {
                     Planet::add_planet(planets, n_planet, capacity);
+                    std::cout << "Планета добавлена." << std::endl;
+                    wait_for_continue();
                     break;
-                case DELETE_BOOK:
-                    if ((ind = Planet::find(planets, n_planet)) >= 0)
-                        Planet::delete_planet(planets, n_planet, ind);
-                    else
-                        std::cout << "Такой планеты нет" << std::endl;
+                }
+                case DELETE_BOOK: {
+                    if (n_planet == 0) {
+                        std::cout << "Список планет пуст." << std::endl;
+                    } else {
+                        int index = Planet::find(planets, n_planet);
+                        if (index >= 0) {
+                            Planet::delete_planet(planets, n_planet, index);
+                            std::cout << "Планета удалена." << std::endl;
+                        } else {
+                            std::cout << "Планета не найдена." << std::endl;
+                        }
+                    }
+                    wait_for_continue();
                     break;
+                }
                 case EXIT_PROGRAM:
                     delete[] planets;
                     return 0;
                 default:
-                    std::cout << "Неправильный ввод" << std::endl;
+                    std::cout << "Неправильный выбор." << std::endl;
+                    wait_for_continue();
                     break;
             }
         }
     } else if (argc > 1 && strcmp(argv[1], "d") == 0) {
-        std::strcpy(file_name, "Sun.txt");
         n_planet = Planet::read_db(file_name, planets, n_planet, capacity);
         Planet::print_db(planets, n_planet);
-        std::cout << '\n';
-
-        std::cin >> planets[2];
-        std::cout << planets[2] << std::endl;
-        Planet::sort_by_name(planets, n_planet);
-        Planet::print_db(planets, n_planet);
-        std::cout << '\n';
-
-        Planet::sort_db(planets, n_planet);
-        Planet::print_db(planets, n_planet);
-        std::cout << '\n';
+        std::cout << std::endl;
 
         Planet::add_planet(planets, n_planet, capacity);
-        Planet::delete_planet(planets, n_planet, 2);
+        Planet::print_db(planets, n_planet);
+        std::cout << std::endl;
+
+        Planet::sort_by_name(planets, n_planet);
+        Planet::print_db(planets, n_planet);
+        std::cout << std::endl;
+
+        Planet::delete_planet(planets, n_planet, 1);
         Planet::print_db(planets, n_planet);
     }
+
     delete[] planets;
     return 0;
 }

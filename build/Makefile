@@ -117,6 +117,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named planet_lib
+
+# Build rule for target.
+planet_lib: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 planet_lib
+.PHONY : planet_lib
+
+# fast build rule for target.
+planet_lib/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/planet_lib.dir/build.make CMakeFiles/planet_lib.dir/build
+.PHONY : planet_lib/fast
+
+#=============================================================================
 # Target rules for targets named lab2
 
 # Build rule for target.
@@ -128,6 +141,30 @@ lab2: cmake_check_build_system
 lab2/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/build
 .PHONY : lab2/fast
+
+PLanetLib/planet.o: PLanetLib/planet.cpp.o
+.PHONY : PLanetLib/planet.o
+
+# target to build an object file
+PLanetLib/planet.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/planet_lib.dir/build.make CMakeFiles/planet_lib.dir/PLanetLib/planet.cpp.o
+.PHONY : PLanetLib/planet.cpp.o
+
+PLanetLib/planet.i: PLanetLib/planet.cpp.i
+.PHONY : PLanetLib/planet.i
+
+# target to preprocess a source file
+PLanetLib/planet.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/planet_lib.dir/build.make CMakeFiles/planet_lib.dir/PLanetLib/planet.cpp.i
+.PHONY : PLanetLib/planet.cpp.i
+
+PLanetLib/planet.s: PLanetLib/planet.cpp.s
+.PHONY : PLanetLib/planet.s
+
+# target to generate assembly for a file
+PLanetLib/planet.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/planet_lib.dir/build.make CMakeFiles/planet_lib.dir/PLanetLib/planet.cpp.s
+.PHONY : PLanetLib/planet.cpp.s
 
 main.o: main.cpp.o
 .PHONY : main.o
@@ -153,30 +190,6 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-planet.o: planet.cpp.o
-.PHONY : planet.o
-
-# target to build an object file
-planet.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/planet.cpp.o
-.PHONY : planet.cpp.o
-
-planet.i: planet.cpp.i
-.PHONY : planet.i
-
-# target to preprocess a source file
-planet.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/planet.cpp.i
-.PHONY : planet.cpp.i
-
-planet.s: planet.cpp.s
-.PHONY : planet.s
-
-# target to generate assembly for a file
-planet.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/lab2.dir/build.make CMakeFiles/lab2.dir/planet.cpp.s
-.PHONY : planet.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -186,12 +199,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... lab2"
+	@echo "... planet_lib"
+	@echo "... PLanetLib/planet.o"
+	@echo "... PLanetLib/planet.i"
+	@echo "... PLanetLib/planet.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... planet.o"
-	@echo "... planet.i"
-	@echo "... planet.s"
 .PHONY : help
 
 

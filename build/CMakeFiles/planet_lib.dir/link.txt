@@ -1,0 +1,2 @@
+/usr/bin/ar qc libplanet_lib.a CMakeFiles/planet_lib.dir/PLanetLib/planet.cpp.o
+/usr/bin/ranlib libplanet_lib.a

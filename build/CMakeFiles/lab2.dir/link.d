@@ -3,7 +3,7 @@ lab2: \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
   CMakeFiles/lab2.dir/main.cpp.o \
-  CMakeFiles/lab2.dir/planet.cpp.o \
+  libplanet_lib.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
@@ -41,7 +41,7 @@ lab2: \
 
 CMakeFiles/lab2.dir/main.cpp.o:
 
-CMakeFiles/lab2.dir/planet.cpp.o:
+libplanet_lib.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so:
 

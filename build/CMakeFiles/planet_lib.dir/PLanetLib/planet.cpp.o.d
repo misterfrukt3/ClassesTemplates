@@ -1,5 +1,5 @@
-CMakeFiles/lab2.dir/main.cpp.o: \
- /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/main.cpp \
+CMakeFiles/planet_lib.dir/PLanetLib/planet.cpp.o: \
+ /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/PLanetLib/planet.cpp \
  /usr/include/stdc-predef.h \
  /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/PLanetLib/planet.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
@@ -155,4 +155,11 @@ CMakeFiles/lab2.dir/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
  /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/cstring \
- /usr/include/string.h /usr/include/strings.h
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
+ /usr/include/c++/13/bits/algorithmfwd.h \
+ /usr/include/c++/13/bits/stl_heap.h \
+ /usr/include/c++/13/bits/uniform_int_dist.h \
+ /usr/include/c++/13/bits/stl_tempbuf.h \
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/13/pstl/execution_defs.h
