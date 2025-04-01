@@ -1,7 +1,8 @@
 #include "planet.h"
 #include <iostream>
 #include <fstream>
-#include <algorithm>
+#include <cstring>
+
 
 int Planet::counter = 0;
 
@@ -212,13 +213,25 @@ int Planet::find(const Planet* planets, int n_planet) {
 }
 
 void Planet::sort_by_diameter(Planet* planets, int n_planet) {
-    std::sort(planets, planets + n_planet, [](const Planet& a, const Planet& b) {
-        return a.getDiameter() < b.getDiameter();
-    });
+    for (int i = 0; i < n_planet - 1; i++) {
+        for (int j = i + 1; j < n_planet; j++) {
+            if (planets[i].getDiameter() < planets[j].getDiameter()) {
+                Planet temp = planets[i];
+                planets[i] = planets[j];
+                planets[j] = temp;
+            }
+        }
+    }
 }
 
 void Planet::sort_by_name(Planet* planets, int n_planet) {
-    std::sort(planets, planets + n_planet, [](const Planet& a, const Planet& b) {
-        return strcmp(a.getPlanet(), b.getPlanet()) < 0;
-    });
+    for (int i = 0; i < n_planet - 1; i++) {
+        for (int j = i + 1; j < n_planet; j++) {
+            if (strcmp(planets[i].getPlanet(), planets[j].getPlanet()) > 0) {
+                Planet temp = planets[i];
+                planets[i] = planets[j];
+                planets[j] = temp;
+            }
+        }
+    }
 }
