@@ -6,7 +6,7 @@ void wait_for_continue() {
     std::cout << "Продолжить? (y/n): ";
     std::cin >> choice;
     if (choice == 'n' || choice == 'N') {
-        exit(0); // Завершение программы
+        exit(0);
     }
 }
 
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
                     }
                     wait_for_continue();
                     break;
-                }
+                }   
                 case EDIT_PLANET: {
                     if (n_planet == 0) {
                         std::cout << "Список планет пуст." << std::endl;

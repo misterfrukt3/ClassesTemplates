@@ -20,7 +20,11 @@ enum MenuOption {
 class Planet {
 private:
     char* planet_;
-    int diameter_, life_, satellite_;
+    int diameter_;
+    int life_;
+    int satellite_;
+    static int counter;
+    int id;
 
 public:
     Planet();
@@ -29,16 +33,24 @@ public:
     Planet& operator=(const Planet& other);
     ~Planet();
 
+
     friend std::istream& operator>>(std::istream& in, Planet& planet);
     friend std::ostream& operator<<(std::ostream& os, const Planet& planet);
+    friend std::ifstream& operator>>(std::ifstream& fin, Planet& planet);
+    friend std::ofstream& operator<<(std::ofstream& fout, const Planet& planet);
+
+
+    bool operator<(const Planet& other) const;
+    bool operator==(const Planet& other) const;
+
 
     const char* getPlanet() const;
     int getDiameter() const;
     int getLife() const;
     int getSatellite() const;
+    int getId() const;
 
-    void clear();
-
+    static int getCounter();
     static void add_planet(Planet*& planets, int& n_planet, int& capacity);
     static void delete_planet(Planet* planets, int& n_planet, int planet_index);
     static int read_db(const char* file_name, Planet*& planets, int& n_planet, int& capacity);

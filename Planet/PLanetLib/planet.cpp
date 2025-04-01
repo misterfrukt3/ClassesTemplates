@@ -4,8 +4,13 @@
 #include <cstring>
 #include <algorithm>
 
+int Planet::counter = 0;
+
+// Конструкторы
 Planet::Planet() : planet_(new char[1]), diameter_(0), life_(0), satellite_(0) {
     planet_[0] = '\0';
+    id = ++counter;
+    std::cout << "Создание ID " << id << std::endl;
 }
 
 Planet::Planet(const char* planet, int diameter, int life, int satellite) {
@@ -14,6 +19,8 @@ Planet::Planet(const char* planet, int diameter, int life, int satellite) {
     diameter_ = diameter;
     life_ = life;
     satellite_ = satellite;
+    id = ++counter;
+    std::cout << "Создание ID " << id << std::endl;
 }
 
 Planet::Planet(const Planet& p) {
@@ -22,8 +29,11 @@ Planet::Planet(const Planet& p) {
     diameter_ = p.diameter_;
     life_ = p.life_;
     satellite_ = p.satellite_;
+    id = ++counter;
+    std::cout << "Копирование ID " << id << " из ID " << p.id << std::endl;
 }
 
+// Оператор присваивания
 Planet& Planet::operator=(const Planet& other) {
     if (this != &other) {
         delete[] planet_;
@@ -33,29 +43,17 @@ Planet& Planet::operator=(const Planet& other) {
         life_ = other.life_;
         satellite_ = other.satellite_;
     }
+    std::cout << "Присваивание ID " << id << " <- ID " << other.id << std::endl;
     return *this;
 }
 
+// Деструктор
 Planet::~Planet() {
+    std::cout << "Удаление ID " << id << std::endl;
     delete[] planet_;
 }
 
-const char* Planet::getPlanet() const {
-    return planet_;
-}
-
-int Planet::getDiameter() const {
-    return diameter_;
-}
-
-int Planet::getLife() const {
-    return life_;
-}
-
-int Planet::getSatellite() const {
-    return satellite_;
-}
-
+// Перегрузка операторов ввода/вывода
 std::istream& operator>>(std::istream& in, Planet& planet) {
     char temp_name[100];
     std::cout << "Введите название планеты: ";
@@ -63,7 +61,7 @@ std::istream& operator>>(std::istream& in, Planet& planet) {
     planet = Planet(temp_name, 0, 0, 0);
     std::cout << "Введите диаметр: ";
     in >> planet.diameter_;
-    std::cout << "Есть ли жизнь (0/1): ";
+    std::cout << "Есть ли жизнь (1/0): ";
     in >> planet.life_;
     std::cout << "Введите количество спутников: ";
     in >> planet.satellite_;
@@ -71,21 +69,48 @@ std::istream& operator>>(std::istream& in, Planet& planet) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Planet& planet) {
-    os << "Планета: " << planet.planet_
+    os << "ID " << planet.id << ": "
+       << "Планета: " << planet.planet_
        << ", Диаметр: " << planet.diameter_
        << ", Жизнь: " << (planet.life_ ? "Да" : "Нет")
        << ", Спутники: " << planet.satellite_;
     return os;
 }
 
-void Planet::clear() {
-    delete[] planet_;
-    planet_ = new char[1];
-    planet_[0] = '\0';
-    diameter_ = 0;
-    life_ = 0;
-    satellite_ = 0;
+std::ifstream& operator>>(std::ifstream& fin, Planet& planet) {
+    char temp_name[100];
+    fin >> temp_name;
+    planet = Planet(temp_name, 0, 0, 0);
+    fin >> planet.diameter_ >> planet.life_ >> planet.satellite_;
+    return fin;
 }
+
+std::ofstream& operator<<(std::ofstream& fout, const Planet& planet) {
+    fout << planet.planet_ << " "
+         << planet.diameter_ << " "
+         << planet.life_ << " "
+         << planet.satellite_;
+    return fout;
+}
+
+// Перегрузка операторов сравнения
+bool Planet::operator<(const Planet& other) const {
+    return diameter_ < other.diameter_;
+}
+
+bool Planet::operator==(const Planet& other) const {
+    return strcmp(planet_, other.planet_) == 0;
+}
+
+// Геттеры
+const char* Planet::getPlanet() const { return planet_; }
+int Planet::getDiameter() const { return diameter_; }
+int Planet::getLife() const { return life_; }
+int Planet::getSatellite() const { return satellite_; }
+int Planet::getId() const { return id; }
+
+// Статические методы
+int Planet::getCounter() { return counter; }
 
 void Planet::add_planet(Planet*& planets, int& n_planet, int& capacity) {
     if (n_planet >= capacity) {
@@ -169,7 +194,7 @@ int Planet::menu() {
     std::cout << "5. Отсортировать планеты по диаметру" << std::endl;
     std::cout << "6. Отсортировать планеты по названию" << std::endl;
     std::cout << "7. Добавить планету" << std::endl;
-    std::cout << "8. Удалить планетю" << std::endl;
+    std::cout << "8. Удалить планету" << std::endl;
     std::cout << "9. Выйти" << std::endl;
     int choice;
     std::cin >> choice;
@@ -185,7 +210,7 @@ int Planet::find(const Planet* planets, int n_planet) {
             return i;
         }
     }
-    return -1; // Планета не найдена
+    return -1;
 }
 
 void Planet::sort_by_diameter(Planet* planets, int n_planet) {
