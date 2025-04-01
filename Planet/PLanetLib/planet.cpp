@@ -1,12 +1,11 @@
 #include "planet.h"
 #include <iostream>
 #include <fstream>
-#include <cstring>
 #include <algorithm>
 
 int Planet::counter = 0;
 
-// Конструкторы
+
 Planet::Planet() : planet_(new char[1]), diameter_(0), life_(0), satellite_(0) {
     planet_[0] = '\0';
     id = ++counter;
@@ -33,7 +32,7 @@ Planet::Planet(const Planet& p) {
     std::cout << "Копирование ID " << id << " из ID " << p.id << std::endl;
 }
 
-// Оператор присваивания
+
 Planet& Planet::operator=(const Planet& other) {
     if (this != &other) {
         delete[] planet_;
@@ -47,13 +46,12 @@ Planet& Planet::operator=(const Planet& other) {
     return *this;
 }
 
-// Деструктор
+
 Planet::~Planet() {
     std::cout << "Удаление ID " << id << std::endl;
     delete[] planet_;
 }
 
-// Перегрузка операторов ввода/вывода
 std::istream& operator>>(std::istream& in, Planet& planet) {
     char temp_name[100];
     std::cout << "Введите название планеты: ";
@@ -93,7 +91,7 @@ std::ofstream& operator<<(std::ofstream& fout, const Planet& planet) {
     return fout;
 }
 
-// Перегрузка операторов сравнения
+
 bool Planet::operator<(const Planet& other) const {
     return diameter_ < other.diameter_;
 }

@@ -1,7 +1,7 @@
 CMakeFiles/PlanetApp.dir/main.cpp.o: \
- /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/using_lib/main.cpp \
+ /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/Planet/using_lib/main.cpp \
  /usr/include/stdc-predef.h \
- /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/using_lib/planet.h \
+ /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/Planet/using_lib/planet.h \
  /usr/include/c++/13/iostream /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \

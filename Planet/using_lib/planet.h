@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <cstring>
 
 enum MenuOption {
     READ_FROM_FILE = 1,
@@ -19,7 +18,7 @@ enum MenuOption {
 
 class Planet {
 private:
-    char* planet_;       
+    char* planet_;
     int diameter_;
     int life_;
     int satellite_;

@@ -3,7 +3,7 @@ PlanetApp: \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o \
   /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
   CMakeFiles/PlanetApp.dir/main.cpp.o \
-  /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/using_lib/libplanet.a \
+  /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/Planet/using_lib/libplanet.a \
   /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
   /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
@@ -41,7 +41,7 @@ PlanetApp: \
 
 CMakeFiles/PlanetApp.dir/main.cpp.o:
 
-/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/using_lib/libplanet.a:
+/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/Planet/using_lib/libplanet.a:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.so:
 

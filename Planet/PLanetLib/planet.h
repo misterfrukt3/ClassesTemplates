@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <fstream>
-#include <cstring>
+
 
 enum MenuOption {
     READ_FROM_FILE = 1,

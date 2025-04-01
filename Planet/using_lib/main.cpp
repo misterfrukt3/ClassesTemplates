@@ -1,5 +1,6 @@
 #include "planet.h"
 #include <iostream>
+#include <cstring>
 
 void wait_for_continue() {
     char choice;
@@ -12,7 +13,7 @@ void wait_for_continue() {
 
 int main(int argc, char* argv[]) {
     const int INITIAL_CAPACITY = 10;
-    const char* file_name = "planets.txt";
+    char* file_name = "planets.txt";
     Planet* planets = new Planet[INITIAL_CAPACITY];
     int n_planet = 0;
     int capacity = INITIAL_CAPACITY;
@@ -42,7 +43,7 @@ int main(int argc, char* argv[]) {
                     }
                     wait_for_continue();
                     break;
-                }   
+                }
                 case EDIT_PLANET: {
                     if (n_planet == 0) {
                         std::cout << "Список планет пуст." << std::endl;
@@ -118,6 +119,7 @@ int main(int argc, char* argv[]) {
             }
         }
     } else if (argc > 1 && strcmp(argv[1], "d") == 0) {
+        file_name = "Sun.txt";
         n_planet = Planet::read_db(file_name, planets, n_planet, capacity);
         Planet::print_db(planets, n_planet);
         std::cout << std::endl;

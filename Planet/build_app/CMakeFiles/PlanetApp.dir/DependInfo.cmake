@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/using_lib/main.cpp" "CMakeFiles/PlanetApp.dir/main.cpp.o" "gcc" "CMakeFiles/PlanetApp.dir/main.cpp.o.d"
+  "/home/misterfrukt/CS-Labs/ClassesTemplates_Labs/Planet/using_lib/main.cpp" "CMakeFiles/PlanetApp.dir/main.cpp.o" "gcc" "CMakeFiles/PlanetApp.dir/main.cpp.o.d"
   "" "PlanetApp" "gcc" "CMakeFiles/PlanetApp.dir/link.d"
   )
 
