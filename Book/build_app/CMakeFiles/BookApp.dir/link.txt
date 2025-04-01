@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/BookApp.dir/link.d CMakeFiles/BookApp.dir/main.cpp.o -o BookApp  /home/misterfrukt/CS-Labs/ClassesTemplates_Labs/Book/using_lib/libBook.a

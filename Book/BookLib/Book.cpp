@@ -104,12 +104,26 @@ void Book::deleteBook(Book* books, int &nBooks, int bookIndex) {
 
 int Book::readDB(const char* fileName, Book*& books, int &nBooks, int &capacity) {
     std::ifstream file(fileName);
-    if (!file) return -1;
+    if (!file) {
+        std::cerr << "Ошибка открытия файла: " << fileName << std::endl;
+        return -1;
+    }
 
-    Book temp;
-    while (file >> temp.book_ >> temp.author_ >> temp.words_ >> temp.weight_) {
-        addBook(books, nBooks, capacity);
-        books[nBooks - 1] = temp;
+    char tempBook[100], tempAuthor[100];
+    int words, weight;
+
+    while (file >> tempBook >> tempAuthor >> words >> weight) {
+        if (nBooks >= capacity) {
+            capacity *= 2;
+            Book* temp = new Book[capacity];
+            for (int i = 0; i < nBooks; i++) {
+                temp[i] = books[i];
+            }
+            delete[] books;
+            books = temp;
+        }
+        books[nBooks] = Book(tempBook, tempAuthor, words, weight);
+        nBooks++;
     }
     file.close();
     return nBooks;

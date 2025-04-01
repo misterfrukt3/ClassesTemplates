@@ -2,12 +2,20 @@
 #include <iostream>
 #include <cstring>
 
+void wait_for_continue() {
+    char choice;
+    std::cout << "Продолжить? (y/n): ";
+    std::cin >> choice;
+    if (choice == 'n' || choice == 'N') {
+        exit(0); // Завершение программы
+    }
+}
+
 int main(int argc, char* argv[]) {
     const int INITIAL_CAPACITY = 10;
     Book* books = new Book[INITIAL_CAPACITY];
     int nBooks = 0, capacity = INITIAL_CAPACITY;
     char fileName[100];
-
     if (argc > 1 && strcmp(argv[1], "i") == 0) {
         while (true) {
             int choice = Book::menu();
@@ -17,51 +25,64 @@ int main(int argc, char* argv[]) {
             }
 
             switch (static_cast<MenuOption>(choice)) {
-                case READ_FROM_FILE:
+                {case READ_FROM_FILE:
                     std::cout << "Введите имя файла: ";
                     std::cin >> fileName;
-                    if (Book::readDB(fileName, books, nBooks, capacity) == -1) {
-                        std::cout << "Ошибка чтения файла.\n";
+                    int book_result = Book::readDB(fileName, books, nBooks, capacity);
+                    if (book_result == -1) {
+                        std::cerr << "Ошибка чтения файла: " << fileName << std::endl;
+                    } else {
+                        std::cout << "Успешно прочитано " << book_result << " книг.\n";
                     }
-                    break;
-                case WRITE_TO_FILE:
+                    wait_for_continue();
+                    break;}
+                {case WRITE_TO_FILE:
                     std::cout << "Введите имя файла: ";
                     std::cin >> fileName;
                     if (Book::writeDB(fileName, books, nBooks) == -1) {
-                        std::cout << "Ошибка записи файла.\n";
+                        std::cerr << "Ошибка записи файла: " << fileName << std::endl;
+                    } else {
+                        std::cout << "Успешно записано " << nBooks << " книг.\n";
                     }
-                    break;
-                case EDIT_BOOK:
+                    wait_for_continue();
+                    break;}
+                {case EDIT_BOOK:
                     if ((choice = Book::find(books, nBooks)) >= 0) {
                         std::cin >> books[choice];
                     } else {
                         std::cout << "Книга не найдена.\n";
                     }
-                    break;
-                case PRINT_BOOKS:
+                    wait_for_continue();
+                    break;}
+                {case PRINT_BOOKS:
                     Book::printDB(books, nBooks);
-                    break;
-                case SORT_BY_AUTHOR:
+                    wait_for_continue();
+                    break;}
+               { case SORT_BY_AUTHOR:
                     Book::sortByAuthor(books, nBooks);
-                    break;
-                case SORT_BY_NAME:
+                    wait_for_continue();
+                    break;}
+                {case SORT_BY_NAME:
                     Book::sortByName(books, nBooks);
-                    break;
-                case ADD_BOOK:
+                    wait_for_continue();
+                    break;}
+                {case ADD_BOOK:
                     Book::addBook(books, nBooks, capacity);
-                    break;
-                case DELETE_BOOK:
+                    wait_for_continue();
+                    break;}
+                {case DELETE_BOOK:
                     if ((choice = Book::find(books, nBooks)) >= 0) {
                         Book::deleteBook(books, nBooks, choice);
                     } else {
                         std::cout << "Книга не найдена.\n";
                     }
-                    break;
-                case EXIT_PROGRAM:
+                    wait_for_continue();
+                    break;}
+                {case EXIT_PROGRAM:
                     delete[] books;
-                    return 0;
-                default:
-                    break;
+                    return 0;}
+                {default:
+                    break;}
             }
         }
     } else {
