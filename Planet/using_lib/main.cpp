@@ -58,7 +58,7 @@ int main(int argc, char* argv[]) {
                     wait_for_continue();
                     break;
                 }
-                case PRINT_BOOKS: {
+                case PRINT_PLANETS: {
                     if (n_planet == 0) {
                         std::cout << "Список планет пуст." << std::endl;
                     } else {
@@ -87,13 +87,13 @@ int main(int argc, char* argv[]) {
                     wait_for_continue();
                     break;
                 }
-                case ADD_BOOK: {
+                case ADD_PLANET: {
                     Planet::add_planet(planets, n_planet, capacity);
                     std::cout << "Планета добавлена." << std::endl;
                     wait_for_continue();
                     break;
                 }
-                case DELETE_BOOK: {
+                case DELETE_PLANET: {
                     if (n_planet == 0) {
                         std::cout << "Список планет пуст." << std::endl;
                     } else {
